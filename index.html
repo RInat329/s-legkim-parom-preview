@@ -3,19 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="С лёгким паром — хамам и финская сауна с бассейном в Саратове. Пр. им. 50 лет Октября, 104, цокольный этаж. Аренда зала для компании, работаем круглосуточно.">
-<meta name="keywords" content="баня Саратов, сауна Саратов, хамам Саратов, финская сауна Саратов, сауна с бассейном Саратов, С лёгким паром Саратов">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://rinat329.github.io/s-legkim-parom-preview/">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://rinat329.github.io/s-legkim-parom-preview/">
-<meta property="og:title" content="С лёгким паром — хамам и финская сауна в Саратове">
-<meta property="og:description" content="Хамам и финская сауна с бассейном. Саратов, пр. им. 50 лет Октября, 104. Работаем 24/7.">
-<meta property="og:image" content="https://rinat329.github.io/s-legkim-parom-preview/s_legkim_parom_photos/2.jpeg">
-<meta property="og:locale" content="ru_RU">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#1c1208">
-<title>С лёгким паром — хамам и финская сауна с бассейном в Саратове 24/7</title>
+<title>С лёгким паром — Баня в Саратове</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap');
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -213,9 +201,30 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
 .map-info { display:flex; flex-direction:column; gap:28px; }
 .map-addr-label { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; font-weight:300; }
 .map-addr { font-family:'system-ui','Helvetica Neue',Arial,sans-serif; font-size:clamp(20px,2.5vw,30px); font-weight:300; color:#fff; line-height:1.3; letter-spacing:0px; }
-.map-link { display:inline-flex; align-items:center; gap:10px; color:var(--gold); text-decoration:none; font-size:13px; letter-spacing:2px; text-transform:uppercase; border-bottom:1px solid #C9A84C40; padding-bottom:4px; transition:border-color .2s; font-weight:300; }
+.map-link {
+  display:inline-flex; align-items:center; gap:14px; min-height:46px;
+  color:var(--gold); text-decoration:none; font-size:13px; letter-spacing:2px; text-transform:uppercase;
+  border-bottom:1px solid #C9A84C40; padding:6px 0 8px;
+  transition:border-color .2s, color .2s; font-weight:300;
+}
 .map-link:hover { border-color:var(--gold); }
 .map-link::after { content:'→'; }
+.map-logo-link { align-items:center !important; gap:16px !important; }
+.map-logo-link .map-service-icon {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  flex:0 0 auto !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  overflow:visible !important;
+  position:relative !important;
+  z-index:2 !important;
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.35));
+}
+.map-logo-link .map-service-icon svg { display:block !important; width:100% !important; height:100% !important; opacity:1 !important; visibility:visible !important; }
+.map-logo-link .map-service-icon.yandex { width:34px !important; height:42px !important; }
+.map-logo-link .map-service-icon.twogis { width:136px !important; height:42px !important; }
 .map-work { display:flex; flex-direction:column; gap:4px; }
 .map-work-label { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); font-weight:300; }
 .map-work-val { font-family:'system-ui','Helvetica Neue',Arial,sans-serif; font-size:20px; font-weight:300; color:#fff; letter-spacing:0px; }
@@ -412,9 +421,14 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
 
 
 /* SLIDER */
-.room-slider { position:relative; overflow:hidden; }
-.room-slider .slide { display:none; width:100%; height:100%; }
-.room-slider .slide.active { display:flex; }
+.room-slider { position:relative; overflow:hidden; isolation:isolate; }
+.room-slider .slide {
+  position:absolute; inset:0; display:block; width:100%; height:100%;
+  opacity:0; z-index:0; pointer-events:none;
+  transform:translateZ(0); transition:opacity .32s ease;
+  will-change:opacity;
+}
+.room-slider .slide.active { opacity:1; z-index:1; pointer-events:auto; }
 .slider-btn {
   position:absolute; top:50%; transform:translateY(-50%);
   width:46px; height:92px;
@@ -434,11 +448,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
 .dot { width:6px; height:6px; border-radius:50%; background:#C9A84C40; cursor:pointer; transition:background .2s; }
 .dot.active { background:var(--gold); }
 
-.room-slider .slide { opacity:0; transition:opacity .28s ease, transform .28s ease; }
-.room-slider .slide.active { opacity:1; transform:translateX(0); }
-.room-slider .slide.leaving { display:block; position:absolute; inset:0; opacity:0; pointer-events:none; }
-.room-slider .slide.entering { animation:roomSlideIn .28s ease both; }
-@keyframes roomSlideIn { from { opacity:0; transform:translateX(18px); } to { opacity:1; transform:translateX(0); } }
+
 /* FLOAT PHONE */
 .float-phone {
   position:fixed !important; bottom:28px; right:28px; z-index:9999;
@@ -608,7 +618,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
 .gal-item img { transition:transform .35s; }
 .gal-item:hover img { transform:scale(1.035); }
 .room-slider .slide { overflow:hidden; }
-.room-slider .slide.active { display:block; }
+
 
 /* Photo fullscreen viewer */
 .lightbox {
@@ -617,19 +627,19 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
   background:rgba(8,5,3,0.94); padding:28px;
 }
 .lightbox.open { display:flex; }
+.lightbox-stage { position:relative; width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; touch-action:pan-y; }
 .lightbox-img {
   max-width:min(92vw,1400px); max-height:88vh;
   width:auto; height:auto; object-fit:contain;
   box-shadow:0 20px 80px rgba(0,0,0,.65);
 }
-.lightbox-img { cursor:grab; user-select:none; }
-.lightbox-img { transition:transform .22s ease, opacity .22s ease; will-change:transform, opacity; }
-.lightbox-img.slide-out-left { transform:translateX(-42px); opacity:0; }
-.lightbox-img.slide-out-right { transform:translateX(42px); opacity:0; }
-.lightbox-img.slide-in-left { animation:lightboxInLeft .24s ease both; }
-.lightbox-img.slide-in-right { animation:lightboxInRight .24s ease both; }
-@keyframes lightboxInLeft { from { transform:translateX(-42px); opacity:0; } to { transform:translateX(0); opacity:1; } }
-@keyframes lightboxInRight { from { transform:translateX(42px); opacity:0; } to { transform:translateX(0); opacity:1; } }
+.lightbox-img { cursor:grab; user-select:none; position:absolute; inset:auto; transform:translate3d(0,0,0); opacity:1; transition:opacity .30s ease; will-change:opacity; backface-visibility:hidden; }
+.lightbox-current { z-index:1; }
+.lightbox-next-img { z-index:2; }
+.lightbox-img.is-next { opacity:0; pointer-events:none; }
+.lightbox-img.dragging { transition:none; }
+.lightbox-img.no-transition { transition:none; }
+to { transform:translateX(0); opacity:1; } }
 .lightbox-img.dragging { cursor:grabbing; }
 .lightbox-close, .lightbox-nav {
   z-index:3;
@@ -863,37 +873,6 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
   transform:none !important;
 }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
-  "name": "С лёгким паром",
-  "url": "https://rinat329.github.io/s-legkim-parom-preview/",
-  "image": "https://rinat329.github.io/s-legkim-parom-preview/s_legkim_parom_photos/2.jpeg",
-  "telephone": "+7 8452 44-20-12",
-  "priceRange": "1300-1400 RUB",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Саратов",
-    "streetAddress": "проспект им. 50 лет Октября, 104, цокольный этаж",
-    "addressCountry": "RU"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 51.567037,
-    "longitude": 45.988134
-  },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "opens": "00:00",
-    "closes": "23:59"
-  }],
-  "sameAs": [
-    "https://2gis.ru/saratov/firm/70000001034695310"
-  ]
-}
-</script>
 </head>
 <body>
 <div class="site">
@@ -1041,7 +1020,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
       <a href="#prices">Цены</a>
       <a href="#map">Как добраться</a>
     </div>
-    <a href="tel:+78452442012" class="nav-call">☎ Позвонить</a>
+    <a href="tel:+79170294246" class="nav-call">☎ Позвонить</a>
   </nav>
 
   <section class="hero">
@@ -1063,7 +1042,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
         <h1 class="reveal delay-1">Баня для вас<br>и вашей <em>компании</em></h1>
         <p class="hero-sub reveal delay-2">Хамам и финская сауна с бассейном — арендуйте на любое время. Только ваша компания, полная приватность.</p>
         <div class="hero-btns reveal delay-3">
-          <a href="tel:+78452442012" class="btn-primary">☎ Позвонить нам</a>
+          <a href="tel:+79170294246" class="btn-primary">☎ Позвонить нам</a>
           <a href="#rooms" class="btn-outline">Посмотреть залы</a>
         </div>
         <div class="hero-stats reveal delay-4">
@@ -1089,7 +1068,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
       <div class="rooms-grid">
         <div class="room-card reveal-left">
           <div class="room-photo room-slider" id="slider-hamam">
-            <div class="slide active" data-photo="2"><img src="s_legkim_parom_photos/2.jpeg" alt="Хамам фото 2" loading="lazy"></div>
+            <div class="slide active" data-photo="2.10"><img src="s_legkim_parom_photos/2.10.jpeg" alt="Хамам фото 2.10" loading="lazy"></div>
 <div class="slide" data-photo="2.1"><img src="s_legkim_parom_photos/2.1.jpeg" alt="Хамам фото 2.1" loading="lazy"></div>
 <div class="slide" data-photo="2.2"><img src="s_legkim_parom_photos/2.2.jpeg" alt="Хамам фото 2.2" loading="lazy"></div>
 <div class="slide" data-photo="2.3"><img src="s_legkim_parom_photos/2.3.jpeg" alt="Хамам фото 2.3" loading="lazy"></div>
@@ -1099,7 +1078,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
 <div class="slide" data-photo="2.7"><img src="s_legkim_parom_photos/2.7.jpeg" alt="Хамам фото 2.7" loading="lazy"></div>
 <div class="slide" data-photo="2.8"><img src="s_legkim_parom_photos/2.8.jpeg" alt="Хамам фото 2.8" loading="lazy"></div>
 <div class="slide" data-photo="2.9"><img src="s_legkim_parom_photos/2.9.jpeg" alt="Хамам фото 2.9" loading="lazy"></div>
-<div class="slide" data-photo="2.10"><img src="s_legkim_parom_photos/2.10.jpeg" alt="Хамам фото 2.10" loading="lazy"></div>
+<div class="slide" data-photo="2"><img src="s_legkim_parom_photos/2.jpeg" alt="Хамам фото 2" loading="lazy"></div>
             <button class="slider-btn prev" onclick="slideRoom('hamam',-1)">‹</button>
             <button class="slider-btn next" onclick="slideRoom('hamam',1)">›</button>
             <div class="slider-dots" id="dots-hamam"><span class="dot active" onclick="goSlide('hamam',0)"></span><span class="dot" onclick="goSlide('hamam',1)"></span><span class="dot" onclick="goSlide('hamam',2)"></span><span class="dot" onclick="goSlide('hamam',3)"></span><span class="dot" onclick="goSlide('hamam',4)"></span><span class="dot" onclick="goSlide('hamam',5)"></span><span class="dot" onclick="goSlide('hamam',6)"></span><span class="dot" onclick="goSlide('hamam',7)"></span><span class="dot" onclick="goSlide('hamam',8)"></span><span class="dot" onclick="goSlide('hamam',9)"></span><span class="dot" onclick="goSlide('hamam',10)"></span></div>
@@ -1119,12 +1098,12 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
         </div>
         <div class="room-card reveal-right">
           <div class="room-photo room-slider" id="slider-sauna">
-            <div class="slide active" data-photo="1"><img src="s_legkim_parom_photos/1.jpeg" alt="Финская сауна фото 1" loading="lazy"></div>
+            <div class="slide active" data-photo="1.5"><img src="s_legkim_parom_photos/1.5.jpeg" alt="Финская сауна фото 1.5" loading="lazy"></div>
 <div class="slide" data-photo="1.1"><img src="s_legkim_parom_photos/1.1.jpeg" alt="Финская сауна фото 1.1" loading="lazy"></div>
 <div class="slide" data-photo="1.2"><img src="s_legkim_parom_photos/1.2.jpeg" alt="Финская сауна фото 1.2" loading="lazy"></div>
 <div class="slide" data-photo="1.3"><img src="s_legkim_parom_photos/1.3.jpeg" alt="Финская сауна фото 1.3" loading="lazy"></div>
 <div class="slide" data-photo="1.4"><img src="s_legkim_parom_photos/1.4.jpeg" alt="Финская сауна фото 1.4" loading="lazy"></div>
-<div class="slide" data-photo="1.5"><img src="s_legkim_parom_photos/1.5.jpeg" alt="Финская сауна фото 1.5" loading="lazy"></div>
+<div class="slide" data-photo="1"><img src="s_legkim_parom_photos/1.jpeg" alt="Финская сауна фото 1" loading="lazy"></div>
 <div class="slide" data-photo="1.6"><img src="s_legkim_parom_photos/1.6.jpeg" alt="Финская сауна фото 1.6" loading="lazy"></div>
 <div class="slide" data-photo="1.7"><img src="s_legkim_parom_photos/1.7.jpeg" alt="Финская сауна фото 1.7" loading="lazy"></div>
             <button class="slider-btn prev" onclick="slideRoom('sauna',-1)">‹</button>
@@ -1214,7 +1193,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
             <div class="price-item">Большой стол и диваны</div>
             <div class="price-item">До 8 человек</div>
           </div>
-          <a href="tel:+78452442012" class="price-cta">☎ Забронировать</a>
+          <a href="tel:+79170294246" class="price-cta">☎ Забронировать</a>
         </div>
         <div class="price-card reveal-right">
           <div class="price-name">Финская сауна</div>
@@ -1227,7 +1206,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
             <div class="price-item">Большой стол и диваны</div>
             <div class="price-item">До 6 человек</div>
           </div>
-          <a href="tel:+78452442012" class="price-cta outline">☎ Забронировать</a>
+          <a href="tel:+79170294246" class="price-cta outline">☎ Забронировать</a>
         </div>
       </div>
     </div>
@@ -1253,10 +1232,10 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
       <p>Звоните — подберём удобное время прямо сейчас</p>
     </div>
     <div class="cta-action">
-      <a href="tel:+78452442012" class="cta-phone">+7 (8452) 44-20-12</a>
-      <a href="tel:+79170294246" class="cta-phone secondary">+7 (917) 029-42-46</a>
+      <a href="tel:+79170294246" class="cta-phone">+7 (917) 029-42-46</a>
+      <a href="tel:+78452442012" class="cta-phone secondary">+7 (8452) 44-20-12</a>
       <div class="cta-work">Работаем круглосуточно · г. Саратов<br>пр. им. 50 лет Октября, 104</div>
-      <a href="tel:+78452442012" class="btn-primary" style="margin-top:8px">☎ Позвонить сейчас</a>
+      <a href="tel:+79170294246" class="btn-primary" style="margin-top:8px">☎ Позвонить сейчас</a>
     </div>
   </div>
 
@@ -1343,8 +1322,8 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
             <div class="map-addr-label">Наш адрес</div>
             <div class="map-addr">пр. им. 50 лет Октября, 104<br><span style="font-size:0.7em;color:var(--muted);letter-spacing:1px;">г. Саратов, цокольный этаж</span></div>
           </div>
-          <a href="https://yandex.ru/maps/?rtext=~51.567037%2C45.988134&amp;rtt=auto&amp;z=17" target="_blank" rel="noopener" class="map-link">Построить маршрут</a>
-          <a href="https://2gis.ru/saratov/firm/70000001034695310" target="_blank" rel="noopener" class="map-link">Открыть в 2ГИС</a>
+          <a href="https://yandex.ru/maps/?rtext=~51.567037%2C45.988134&amp;rtt=auto&amp;z=17" target="_blank" rel="noopener" class="map-link map-logo-link"><span class="map-service-icon yandex" aria-hidden="true" style="display:inline-flex;width:34px;height:42px;flex:0 0 34px;opacity:1;visibility:visible;"><svg viewBox="0 0 32 40" role="img"><path fill="#ff3b30" d="M16 0C7.2 0 0 7.2 0 16c0 12 16 24 16 24s16-12 16-24C32 7.2 24.8 0 16 0Z"/><circle cx="16" cy="16" r="5.2" fill="#fff"/></svg></span><span>Построить маршрут</span></a>
+          <a href="https://2gis.ru/saratov/firm/70000001034695310" target="_blank" rel="noopener" class="map-link map-logo-link"><span class="map-service-icon twogis" aria-hidden="true" style="display:inline-flex;width:136px;height:42px;flex:0 0 136px;opacity:1;visibility:visible;"><svg viewBox="0 0 306 80" role="img"><defs><clipPath id="twogisClip"><rect x="0" y="0" width="80" height="80" rx="17"/></clipPath></defs><g clip-path="url(#twogisClip)"><rect width="80" height="80" fill="#16b515"/><rect x="0" y="0" width="80" height="25" fill="#ffc21a"/><rect x="0" y="59" width="80" height="21" fill="#79d900"/><path d="M0 21 C18 24 27 30 40 29 C54 28 60 21 80 20 L80 28 C61 29 54 35 40 36 C26 37 17 31 0 29 Z" fill="#fff"/><path d="M0 59 C22 55 35 54 51 52 C63 50 70 47 80 44 L80 51 C68 54 61 57 51 59 C35 62 21 62 0 67 Z" fill="#fff"/><path d="M40 14 C56 14 68 28 68 44 C68 57 60 67 49 70 L48 80 L36 80 L34 70 C23 67 16 57 16 44 C16 28 27 14 40 14 Z" fill="#fff"/><path d="M40 20 C53 20 62 31 62 44 C62 54 55 63 46 65 L43 80 L37 80 L34 65 C25 63 22 54 22 44 C22 31 30 20 40 20 Z" fill="#0877f2"/></g><text x="103" y="56" fill="#f4efe6" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="800" letter-spacing="-2">2ГИС</text></svg></span><span>Открыть в 2ГИС</span></a>
           <div class="map-work">
             <div class="map-work-label">Режим работы</div>
             <div class="map-work-val">Круглосуточно, 24/7</div>
@@ -1380,7 +1359,7 @@ html.js .reveal-right { opacity:0; transform:translateX(32px); transition:opacit
 
 <!-- Mobile bottom actions -->
 <nav class="mobile-actions" aria-label="Быстрые действия">
-  <a href="tel:+78452442012" class="mobile-action primary">☎ Позвонить</a>
+  <a href="tel:+79170294246" class="mobile-action primary">☎ Позвонить</a>
   <a href="https://yandex.ru/maps/?rtext=~51.567037%2C45.988134&amp;rtt=auto&amp;z=17" target="_blank" rel="noopener" class="mobile-action"><svg class="route-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8 21 21 12 17.2 3 21 12 2.8z"/></svg><span>Маршрут</span></a>
 </nav>
 
@@ -1410,18 +1389,12 @@ function setSlide(name, idx) {
   if (next === current) return;
 
   slider.dataset.animating = 'true';
-  const currentSlide = slides[current >= 0 ? current : 0];
-  const nextSlide = slides[next];
-  currentSlide.classList.add('leaving');
-  currentSlide.classList.remove('active');
-  nextSlide.classList.add('active', 'entering');
+  slides.forEach((slide, i) => slide.classList.toggle('active', i === next));
   dots.forEach((d, i) => d.classList.toggle('active', i === next));
 
   window.setTimeout(() => {
-    currentSlide.classList.remove('leaving');
-    nextSlide.classList.remove('entering');
     slider.dataset.animating = 'false';
-  }, 300);
+  }, 340);
 }
 function slideRoom(name, dir) {
   const slider = document.getElementById('slider-' + name);
@@ -1497,28 +1470,56 @@ function goSlide(name, idx) { setSlide(name, idx); }
     <button class="lightbox-close" type="button" aria-label="Закрыть">×</button>
     <div class="lightbox-counter"></div>
     <button class="lightbox-nav lightbox-prev" type="button" aria-label="Предыдущее фото">‹</button>
-    <img class="lightbox-img" alt="">
+    <div class="lightbox-stage"><img class="lightbox-img lightbox-current" alt=""><img class="lightbox-img lightbox-next-img is-next" alt=""></div>
     <button class="lightbox-nav lightbox-next" type="button" aria-label="Следующее фото">›</button>
     <div class="lightbox-caption"></div>
   `;
   document.body.appendChild(lightbox);
 
-  const img = lightbox.querySelector('.lightbox-img');
+  const img = lightbox.querySelector('.lightbox-current');
+  const nextImg = lightbox.querySelector('.lightbox-next-img');
   const caption = lightbox.querySelector('.lightbox-caption');
   const counterEl = lightbox.querySelector('.lightbox-counter');
   let activeGroup = groups[0];
   let index = 0;
 
-  function render() {
+  function getItemImage(item) {
+    const image = item.querySelector('img');
+    return image ? (image.currentSrc || image.src) : '';
+  }
+
+  function preloadAround() {
+    [-1, 1].forEach(dir => {
+      const item = activeGroup.items[(index + dir + activeGroup.items.length) % activeGroup.items.length];
+      const src = getItemImage(item);
+      if (src) {
+        const preload = new Image();
+        preload.src = src;
+      }
+    });
+  }
+
+  function setMeta() {
     const current = activeGroup.items[index];
     const currentImg = current.querySelector('img');
-    if (!currentImg) return;
-    img.src = currentImg.currentSrc || currentImg.src;
-    img.alt = currentImg.alt || 'Фото';
+    img.alt = currentImg ? (currentImg.alt || 'Фото') : 'Фото';
     const slot = current.getAttribute('data-photo') || '';
     const description = photoCaptions[slot] || '';
     counterEl.textContent = (index + 1) + ' из ' + activeGroup.items.length;
     caption.textContent = description;
+  }
+
+  function render() {
+    const current = activeGroup.items[index];
+    const src = getItemImage(current);
+    if (!src) return;
+    img.classList.add('no-transition');
+    img.style.transform = 'translate3d(0,0,0)';
+    img.style.opacity = '1';
+    img.src = src;
+    setMeta();
+    preloadAround();
+    requestAnimationFrame(() => img.classList.remove('no-transition'));
   }
 
   function openAt(group, nextIndex) {
@@ -1538,21 +1539,47 @@ function goSlide(name, idx) { setSlide(name, idx); }
 
   function move(dir) {
     if (isAnimating) return;
+    const nextIndex = (index + dir + activeGroup.items.length) % activeGroup.items.length;
+    const nextSrc = getItemImage(activeGroup.items[nextIndex]);
+    if (!nextSrc) return;
     isAnimating = true;
-    img.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
-    img.classList.add(dir > 0 ? 'slide-out-left' : 'slide-out-right');
-    window.setTimeout(() => {
-      index = (index + dir + activeGroup.items.length) % activeGroup.items.length;
-      render();
-      img.classList.remove('slide-out-left', 'slide-out-right');
-      img.classList.add(dir > 0 ? 'slide-in-right' : 'slide-in-left');
-      window.setTimeout(() => {
-        img.classList.remove('slide-in-left', 'slide-in-right');
-        isAnimating = false;
-      }, 260);
-    }, 210);
-  }
 
+    nextImg.src = nextSrc;
+    nextImg.alt = activeGroup.items[nextIndex].querySelector('img')?.alt || 'Фото';
+    nextImg.classList.add('no-transition');
+    nextImg.classList.remove('is-next');
+    nextImg.style.transform = 'translate3d(0,0,0)';
+    nextImg.style.opacity = '0';
+    img.classList.add('no-transition');
+    img.style.transform = 'translate3d(0,0,0)';
+    img.style.opacity = '1';
+
+    requestAnimationFrame(() => {
+      img.classList.remove('no-transition');
+      nextImg.classList.remove('no-transition');
+      img.style.opacity = '0';
+      nextImg.style.opacity = '1';
+    });
+
+    window.setTimeout(() => {
+      index = nextIndex;
+      img.classList.add('no-transition');
+      img.src = nextImg.src;
+      img.alt = nextImg.alt;
+      img.style.transform = 'translate3d(0,0,0)';
+      img.style.opacity = '1';
+      nextImg.classList.add('no-transition', 'is-next');
+      nextImg.style.transform = 'translate3d(0,0,0)';
+      nextImg.style.opacity = '0';
+      setMeta();
+      preloadAround();
+      requestAnimationFrame(() => {
+        img.classList.remove('no-transition');
+        nextImg.classList.remove('no-transition');
+        isAnimating = false;
+      });
+    }, 320);
+  }
   let lightboxStartX = 0;
   let lightboxStartY = 0;
   let lightboxDragging = false;
@@ -1562,12 +1589,14 @@ function goSlide(name, idx) { setSlide(name, idx); }
     lightboxStartY = y;
     lightboxDragging = true;
     img.classList.add('dragging');
+    nextImg.classList.add('dragging');
   }
 
   function endLightboxDrag(x, y) {
     if (!lightboxDragging) return;
     lightboxDragging = false;
     img.classList.remove('dragging');
+    nextImg.classList.remove('dragging');
     const dx = x - lightboxStartX;
     const dy = y - lightboxStartY;
     if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.2) {
@@ -1699,7 +1728,7 @@ function goSlide(name, idx) { setSlide(name, idx); }
 </script>
 
 <!-- Floating phone button -->
-  <a href="tel:+78452442012" class="float-phone" title="Позвонить нам" aria-label="Позвонить">
+  <a href="tel:+79170294246" class="float-phone" title="Позвонить нам" aria-label="Позвонить">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.98 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/>
     </svg>
@@ -1707,3 +1736,14 @@ function goSlide(name, idx) { setSlide(name, idx); }
   </a>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
