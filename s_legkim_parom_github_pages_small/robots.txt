@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://rinat329.github.io/s-legkim-parom-preview/sitemap.xml
